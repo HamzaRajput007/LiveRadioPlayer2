@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Live Radio Player</string>
+
+    <string-array name="select_stations_options_array">
+        <item>All</item>
+        <item>Favourites</item>
+        <item>Popular</item>
+        <item>Local</item>
+    </string-array>
+    
+    <string name="channelDescription">WNJO 90.3 is a public radio broadcaster that is licensed to
+        Toms River, New Jersey. The people of New Jersey has access
+        to its official programming on satellite frequency of 90.3 MHz</string>
+</resources>

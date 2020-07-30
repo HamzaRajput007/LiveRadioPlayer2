@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    android:weightSum="10"
+    tools:context=".StationDescription">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/orange"
+        android:layout_weight="3">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bgbar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:id="@+id/textViewRadioTitleId"
+            android:textColor="@color/black"
+            android:text="WNJO 90.3"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/textViewRadioTitleId"
+            android:layout_height="wrap_content"
+            android:id="@+id/favouritesLayoutId"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/textColor"
+                android:id="@+id/favouritesCountTVId"
+                android:text="554"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:text="k+  favourites"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/favouritesLayoutId"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/channelDescription"
+                android:textColor="@color/textColor"
+                android:id="@+id/channelDescriptionTextViewId"
+                android:textSize="12dp"
+
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/top_play_button"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/textViewRadioTitleId"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="15dp"
+                android:weightSum="11"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/plybtncircle"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Radio Name"
+                        android:textStyle="bold"
+                        android:id="@+id/textViewRadioName"
+                        android:textSize="20dp"
+                        android:textColor="@color/orange"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Now Playing"
+                        android:textSize="16dp"
+                        android:textColor="@color/orange"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="10dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/btnViewsId"
+                        android:background="@drawable/seenbg"
+                        android:drawableLeft="@drawable/eye"
+                        android:text="22k"
+                        android:textColor="@color/textColor"
+                        />
+
+                    <Button
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                            android:layout_toLeftOf="@+id/btnViewsId"
+                        android:text="Live"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/btnLiveId"
+                        android:drawableLeft="@drawable/live_btn_drawable_left"
+                        android:textColor="@color/white"
+                        android:background="@drawable/dropdownbg"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="More Stations"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/moreStationsRvId"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:reverseLayout="false"
+                android:scrollbars="horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Popular"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/popularStationsRvId"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:reverseLayout="false"
+                android:scrollbars="horizontal"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/shape"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="370dp"
+            android:src="@drawable/halfmike"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerCrop"/>
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
