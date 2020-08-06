@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/complete_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/channel_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="4dp"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KTCK 1310"
+            android:textStyle="bold"
+            android:textColor="#EC6F1C"
+            android:textSize="15sp"
+            android:layout_gravity="left"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="80dp"/>
+        <TextView
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_name"
+            android:text="Radio"
+            android:textColor="#EC6F1C"
+            android:textSize="12sp"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="80dp"/>
+        <ImageView
+            android:id="@+id/stop"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/playbtn"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="120dp">
+        </ImageView>
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/favouritebtn"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="60dp">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/dots_menu"
+            android:layout_width="5dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/settingbtn"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="22dp">
+        </ImageView>
+    </RelativeLayout>
+</LinearLayout>

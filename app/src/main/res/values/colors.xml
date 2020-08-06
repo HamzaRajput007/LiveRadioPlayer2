@@ -7,4 +7,5 @@
     <color name="black">#2C231D</color>
     <color name="white">#ffffff</color>
     <color name="textColor">#FFAF91</color>
+    <color name="playerStatusBarColor">#433329</color>
 </resources>

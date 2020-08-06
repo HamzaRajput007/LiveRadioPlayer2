@@ -14,9 +14,11 @@ import java.util.ArrayList;
 
 public class PopularStationsRvAdapter extends RecyclerView.Adapter<PopularStationsRvAdapter.PopularStationViewHolder> {
     ArrayList<PopularStationsModel> arrayList;
+    PopularStationInterface popularStationInterface;
 
-    public PopularStationsRvAdapter(ArrayList<PopularStationsModel> arrayList) {
+    public PopularStationsRvAdapter(ArrayList<PopularStationsModel> arrayList , PopularStationInterface popularStationInterface ) {
         this.arrayList = arrayList;
+        this.popularStationInterface = popularStationInterface;
     }
 
     @NonNull
@@ -24,7 +26,7 @@ public class PopularStationsRvAdapter extends RecyclerView.Adapter<PopularStatio
     public PopularStationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_item_popular_stations_recyclerview, parent, false);
-        PopularStationViewHolder popularStationsModel = new PopularStationViewHolder(view);
+        PopularStationViewHolder popularStationsModel = new PopularStationViewHolder(view , popularStationInterface);
         return popularStationsModel;
     }
 
@@ -40,11 +42,22 @@ public class PopularStationsRvAdapter extends RecyclerView.Adapter<PopularStatio
         return arrayList.size();
     }
 
-    public static class PopularStationViewHolder extends RecyclerView.ViewHolder{
+    public static class PopularStationViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView ;
-        public PopularStationViewHolder(@NonNull View itemView) {
+        PopularStationInterface popularStationInterface;
+        public PopularStationViewHolder(@NonNull View itemView , PopularStationInterface popularStationInterface) {
             super(itemView);
+            this.popularStationInterface = popularStationInterface;
             imageView = this.itemView.findViewById(R.id.rowItemPopStationImageViewId);
+            itemView.setOnClickListener(this);
         }
+        @Override
+        public void onClick(View view) {
+            popularStationInterface.popularStationClicked(getAdapterPosition());
+        }
+    }
+
+    public interface PopularStationInterface {
+        public void popularStationClicked(int position);
     }
 }
