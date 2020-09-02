@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/complete_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,6 +17,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="4dp"
             android:scaleType="centerCrop" />
+
         <TextView
             android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
@@ -29,6 +30,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="80dp"/>
+
         <TextView
             android:id="@+id/radio"
             android:layout_width="wrap_content"
@@ -41,6 +43,7 @@
             android:layout_marginTop="0dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="80dp"/>
+
         <ImageView
             android:id="@+id/stop"
             android:layout_width="15dp"
@@ -51,6 +54,7 @@
             android:scaleType="centerCrop"
             android:layout_marginRight="120dp">
         </ImageView>
+
         <ImageView
             android:id="@+id/heart"
             android:layout_width="23dp"
@@ -72,5 +76,6 @@
             android:scaleType="centerCrop"
             android:layout_marginRight="22dp">
         </ImageView>
+
     </RelativeLayout>
 </LinearLayout>

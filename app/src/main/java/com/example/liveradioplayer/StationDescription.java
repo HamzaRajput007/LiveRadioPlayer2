@@ -34,7 +34,7 @@ public class StationDescription extends AppCompatActivity implements MoreStation
     MoreStationsRvAdapter adapter ;
     ArrayList<PopularStationsModel> popularStationsModelArrayList;
     PopularStationsRvAdapter popularStationsRvAdapter;
-    String channelTitleString , popularChannelString;
+    String channelTitleString , popularChannelString , channelTitleFromHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +52,22 @@ public class StationDescription extends AppCompatActivity implements MoreStation
         popularStationsRecyclerView = findViewById(R.id.popularStationsRvId);
 
         Intent intent = getIntent();
-        channelTitleString = intent.getStringExtra("Title");
-        popularChannelString = intent.getStringExtra("PopularTitle");
+        channelTitleFromHome = intent.getStringExtra("ChannelTitle");
+        channelTitleString = intent.getStringExtra("ChannelTitleFromMain");
         if(channelTitleString != null) {
             channelTitle.setText(channelTitleString);
         }
-        else if(popularChannelString != null ){
-            channelTitle.setText(popularChannelString);
+        else if (channelTitleString == ""){
+            channelTitle.setText(channelTitleString);
         }
-        else if(popularChannelString == null && channelTitleString == null ){
-            channelTitle.setText("No Channel To Show");
+
+        if(channelTitleFromHome != null) {
+            channelTitle.setText(channelTitleFromHome);
         }
+        else if (channelTitleFromHome == ""){
+            channelTitle.setText(channelTitleFromHome);
+        }
+
 
 
         playButton = findViewById(R.id.playBtnId);
@@ -75,6 +80,7 @@ public class StationDescription extends AppCompatActivity implements MoreStation
                     startActivity(toPlayerActivity);
                 }
                 else{
+                    channelTitleString = "";
                     Toast.makeText(StationDescription.this, "No Channel To Show Please Select A Valid Channel", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -89,11 +95,15 @@ public class StationDescription extends AppCompatActivity implements MoreStation
 //        arrayList.add(new MoreStationRvItemModel(R.drawable.am670 , "This is a very very very long text to be adjusted in the Title"));
 
         //Popular Stations RecyclerView Data Initialization
-        popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.wgr550 ,"WGR 550 sports radio") );
+       /* popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.wgr550 ,"WGR 550 sports radio") );
         popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.wsis600 ,"WSIS 600"));
         popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.kmrbam1430 , "KMRB AM1430"));
         popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.wmkv , "WMKV 89.3 FM"));
-        popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.am670 , "AM 970 ASPN RADIO"));
+        popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.am670 , "AM 970 ASPN RADIO"));*/
+
+        popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.wmkv , "WMKV 89.3 FM" ));
+        popularStationsModelArrayList.add(new PopularStationsModel(R.drawable.am670, "AM 970 ASPN RADIO" ));
+
 
         //Popular Stations  Adapter Initialization and setting adapter to the Recycler View
         popularStationsRvAdapter = new PopularStationsRvAdapter(popularStationsModelArrayList , this);
@@ -110,19 +120,22 @@ public class StationDescription extends AppCompatActivity implements MoreStation
     @Override
     public void onChannelClicked(int position) {
         MoreStationRvItemModel model =  arrayList.get(position);
-        Intent loadFromMoreChannels = new Intent(StationDescription.this , StationDescription.class );
-        loadFromMoreChannels.putExtra("Title" , model.getTitle());
-        startActivity(loadFromMoreChannels);
-        finish();
+        channelTitleString = model.getTitle();
+        if(channelTitleString != null) {
+            channelTitle.setText(channelTitleString);
+        }
     }
 
     @Override
     public void popularStationClicked(int position) {
-        Toast.makeText(this,  String.valueOf(position) + " Clicked", Toast.LENGTH_SHORT).show();
         PopularStationsModel popularStationsModel = popularStationsModelArrayList.get(position);
-        Intent loadFromPopularChannels = new Intent(StationDescription.this , StationDescription.class);
-        loadFromPopularChannels.putExtra("PopularTitle" , popularStationsModel.getTitle());
-        startActivity(loadFromPopularChannels);
-        finish();
+        popularChannelString = popularStationsModel.getTitle();
+        if(popularChannelString != null) {
+            channelTitle.setText(popularChannelString);
+            channelTitleString = popularChannelString;
+        }
+        else{
+            Toast.makeText(this, "Title is Null", Toast.LENGTH_SHORT).show();
+        }
     }
 }

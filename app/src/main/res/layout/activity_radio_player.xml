@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="7.5"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -47,15 +47,16 @@
                     android:visibility="gone"
                     android:src="@drawable/search"/>
 
-                <ImageView
+                <Button
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginLeft="15dp"
                     android:layout_alignParentLeft="true"
                     android:id="@+id/backBtnPlayerId"
+                    android:background="@drawable/back_btn_player"
                     android:clickable="true"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/back_btn_player"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,7 +121,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="2"
+        android:background="#00000000"
         android:orientation="vertical">
     <!--    <SeekBar
             android:id="@+id/seekBar"
@@ -128,10 +130,34 @@
             android:layout_height="match_parent"
             android:background="@drawable/playfull"
             android:layout_marginBottom="4dp"/>-->
-        <ImageView
+       <!-- <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/progressbar"/>
+            android:src="@drawable/progressbar"/>-->
+
+        <!--<com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_radio_wave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/color_change_speed_v2"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />-->
+
+        <com.narayanacharya.waveview.WaveView
+            android:id="@+id/waveView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:waveAmplitude="10.25"
+            app:waveColor="@color/colorPrimary"
+            app:waveDensity="5.0"
+            app:waveFrequency="2.0"
+            app:waveNumberOfWaves="5"
+            app:wavePhaseShift="-0.05"
+            app:wavePrimaryLineWidth="3.0"
+            app:waveSecondaryLineWidth="1.0"
+            app:waveXAxisPositionMultiplier="0.5" />
     </LinearLayout>
 
 
@@ -146,7 +172,6 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:paddingBottom="30dp"
             android:layout_height="match_parent">
 
             <ImageView
@@ -158,7 +183,59 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.734" />
+
+            <ImageView
+                android:id="@+id/previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/previous"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.802"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.46" />
+
+            <ImageView
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/forward"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.46"></ImageView>
+
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/playbtnradioplayer"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/path2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_bias="0.734" />
 
             <ImageView
@@ -184,7 +261,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView"></ImageView>
 
             <Button
-                android:id="@+id/play"
+                android:id="@+id/playRadioBtnId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/playbtnradioplayer"
@@ -193,7 +270,7 @@
                 app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toEndOf="@+id/previous"
                 app:layout_constraintVertical_bias="0.0"></Button>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
     </LinearLayout>
 
    <!-- <LinearLayout

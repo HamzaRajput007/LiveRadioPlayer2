@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,19 +19,20 @@ import com.example.liveradioplayer.Models.channel_info;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Adapter.MyFavouritesInterface {
     private RecyclerView mRecyclerView,mRecyclerView_Horizontal;
     private Adapter mAdapter;
     private popular_image_adaptter popular_image_adapter_obj;
     Spinner spinner;
     TextView myFavourite,favouriteCount;
+    ArrayList<channel_info> arrayList ;
     //    private ImageAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myFavourite=findViewById(R.id.myfavourite);
+        myFavourite=findViewById(R.id.myfavouriteTextViewId);
         favouriteCount=findViewById(R.id.favouriteCount);
         //  favouriteCount=findViewById(R.id.favouriteCount);
         spinner=findViewById(R.id.spinner);
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView_Horizontal.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        arrayList = new ArrayList<>();
+        arrayList.add(new channel_info("AM 970" , R.drawable.group1 ));
+        arrayList.add(new channel_info("MKV 600" , R.drawable.group2 ));
+        arrayList.add(new channel_info("WMKV 550" , R.drawable.group3 ));
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -60,31 +67,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        String channalarray[]={"A","B","C","D"};
-        int channalImages[]={R.drawable.group1,R.drawable.group2,R.drawable.group3,R.drawable.group5};
-        int popularImages[]={R.drawable.group1,R.drawable.group2,R.drawable.group3,R.drawable.group5};
-
-        ArrayList<channel_info> info=new ArrayList<channel_info>();
-        for(int i = 0 ; i < 4 ;i++)
-        {
-            channel_info channelInfo=new channel_info();
-            channelInfo.setChanel_name(channalarray[i]);
-            channelInfo.setImageID(channalImages[i]);
-
-            channelInfo.setPopularImageID(popularImages[i]);
-
-            info.add(channelInfo);
-        }
-
-        mAdapter = new Adapter(getApplicationContext(),info);
+        mAdapter = new Adapter(getApplicationContext(),arrayList , this);
         mRecyclerView.setAdapter(mAdapter);
-
-
-        popular_image_adapter_obj = new popular_image_adaptter(getApplicationContext(),info);
+        popular_image_adapter_obj = new popular_image_adaptter(getApplicationContext(),arrayList);
         mRecyclerView_Horizontal.setAdapter(popular_image_adapter_obj);
+        myFavourite.setText("My favourite (" + String.valueOf( arrayList.size()) +")");
+    }
 
-
-
+    @Override
+    public void onFavouriteClick(int position) {
+        Intent toDescription = new Intent(this , StationDescription.class);
+        toDescription.putExtra("ChannelTitleFromMain" , arrayList.get(position).getChanel_name());
+        startActivity(toDescription);
     }
 }

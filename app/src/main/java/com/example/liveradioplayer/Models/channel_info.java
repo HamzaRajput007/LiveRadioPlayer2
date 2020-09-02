@@ -23,8 +23,9 @@ public class channel_info {
         this.imageID = imageID;
     }
 
-    public channel_info() {
-
+    public channel_info(String chanel_name, int imageID) {
+        this.chanel_name = chanel_name;
+        this.imageID = imageID;
     }
 
     public String getChanel_name() {

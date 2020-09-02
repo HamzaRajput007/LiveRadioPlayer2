@@ -31,6 +31,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Recycler View
-    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //Lottie Animation
+    def lottieVersion= "3.4.1"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'com.narayanacharya:WaveView:0.9.4'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
 
 }

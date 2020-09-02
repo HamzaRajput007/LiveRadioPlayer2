@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.liveradioplayer.Models.channel_info;
 import com.example.liveradioplayer.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class popular_image_adaptter extends RecyclerView.Adapter<popular_image_adaptter.ImageViewHolder> {
     private Context mContext;
-    private List<channel_info> mUploads;
+    private ArrayList<channel_info> mUploads;
 
-    public popular_image_adaptter(Context mContext, List<channel_info> mUploads) {
-
+    public popular_image_adaptter(Context mContext, ArrayList<channel_info> mUploads) {
         this.mContext = mContext;
         this.mUploads = mUploads;
     }
@@ -27,7 +27,6 @@ public class popular_image_adaptter extends RecyclerView.Adapter<popular_image_a
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.popular_item, parent, false);
-
         return new popular_image_adaptter.ImageViewHolder(view);
     }
 
@@ -42,7 +41,6 @@ public class popular_image_adaptter extends RecyclerView.Adapter<popular_image_a
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return mUploads.size();
@@ -54,8 +52,7 @@ public class popular_image_adaptter extends RecyclerView.Adapter<popular_image_a
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            image_channel=itemView.findViewById(R.id.channel_image);
+            image_channel=itemView.findViewById(R.id.popular_channel_image);
 
         }
 
