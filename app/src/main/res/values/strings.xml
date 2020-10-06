@@ -10,8 +10,25 @@
     
     <string name="HomeScreenUpperText">Tune Online Radio Stations Free</string>
 
-    <string name="channelDescription">WNJO 90.3 is a public radio broadcaster that is licensed to
-        Toms River, New Jersey. The people of New Jersey has access
-        to its official programming on satellite frequency of 90.3 MHz</string>
+    <string name="channelDescription">CBS News Radio is world-famous America’s National News Radio broadcaster that provides news coverage to the entire United States. Through more than 1,000 stations,
+        it is one of the largest networks. The ownership license of the station belongs to “ViacomCBS.” Two parent producers of the broadcaster are CBS and CBS News, while Skyview Networks is its distributer.
+        The local shows and daily activities of the broadcaster are carried at its headquarters located 345 Hudson Street, New York, New York 10014, US.<br></br><br></br>
+
+        The channel provides job opportunities, advertising services to introduce your business to more audiences, internship offers, and much more from its web portal. You can also get live updates by downloading
+        the official apps. Channel offers apps for your smart devices and also by following the social media accounts of the channel.<br></br><br></br>
+
+        Programming:<br></br><br></br>
+The is known globally for its quality programming on news and public affairs. The station offers affiliation to more than 500 nationwide broadcasters to simulcasts its shows to the entire United States.
+        Its flagship station for the New York area is WCBS.<br></br><br></br>
+
+        Transmission Channels:<br></br><br></br>
+The radio is available to the domestic audience through more than 1,000 channels on satellite signals. The citizens of the United States can tune to the frequency of their respective areas.
+The overseas public can join the official web streaming service of the station.<br></br><br></br>
+
+        Shows of CBS News Radio<br></br><br></br>
+CBS This Morning	CBS Evening News	Face The Nation<br></br><br></br>
+CBS Originals	Sunday Mornings	NCIS The Cases They Can’t Forget<br></br><br></br>
+    </string>
     <string name="searchBarHint">For example: \"MSNBC Live Audio\"</string>
+    <string name="home_slogan">Search and listen your favorite Radio Stations around the world</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.liveradioplayer.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,18 +8,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.liveradioplayer.Models.ChannelThumbnailModel;
+import com.example.liveradioplayer.Models.ChannelsModelClasses.Channel;
 import com.example.liveradioplayer.Models.MoreStationRvItemModel;
 import com.example.liveradioplayer.R;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MoreStationsRvAdapter extends RecyclerView.Adapter<MoreStationsRvAdapter.MoreStationsViewHolder> {
 
-    ArrayList<MoreStationRvItemModel> arrayList ;
+    ArrayList<ChannelThumbnailModel> arrayList ;
     MoreStationInterface moreStationInterface;
-    public MoreStationsRvAdapter(ArrayList<MoreStationRvItemModel> arrayList , MoreStationInterface moreStationInterface) {
+    Context mContext;
+    public MoreStationsRvAdapter(Context mContext , ArrayList<ChannelThumbnailModel> arrayList , MoreStationInterface moreStationInterface) {
         this.arrayList = arrayList;
         this.moreStationInterface = moreStationInterface;
+        this.mContext = mContext;
     }
+
     @NonNull
     @Override
     public MoreStationsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,8 +38,10 @@ public class MoreStationsRvAdapter extends RecyclerView.Adapter<MoreStationsRvAd
     }
     @Override
     public void onBindViewHolder(@NonNull MoreStationsViewHolder holder, int position) {
+        // Todo a null pointer Exception is occering here handle it when you are back [ We are trying the show the channels of the same category ] [DONE]
             holder.stationTitle.setText(arrayList.get(position).getTitle());
-            holder.imageView.setImageResource(arrayList.get(position).getImage());
+        Picasso.with(mContext).load(arrayList.get(position).getThumbnailUrl().get(0)).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(holder.imageView);
+
     }
     @Override
     public int getItemCount() {

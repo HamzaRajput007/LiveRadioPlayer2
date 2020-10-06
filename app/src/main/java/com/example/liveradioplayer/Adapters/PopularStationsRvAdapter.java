@@ -35,7 +35,7 @@ public class PopularStationsRvAdapter extends RecyclerView.Adapter<PopularStatio
         holder.imageView.setImageResource(arrayList.get(position).getImage());
     }
 
-    //Todo Check why the popular stations recyclerview is not showing any item in it.
+    //Todo Check why the popular stations recyclerview is not showing any item in it.[DONE]
 
     @Override
     public int getItemCount() {

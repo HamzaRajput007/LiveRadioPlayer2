@@ -6,16 +6,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowActivityTransitions" tools:targetApi="lollipop">true</item>
-        <!-- specify enter and exit transitions -->
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+        <!--&lt;!&ndash; specify enter and exit transitions &ndash;&gt;
         <item name="android:windowEnterTransition" tools:targetApi="lollipop">@transition/explode</item>
         <item name="android:windowExitTransition" tools:targetApi="lollipop">@transition/explode</item>
-        specify shared element transitions
+&lt;!&ndash;        specify shared element transitions&ndash;&gt;
         <item name="android:windowSharedElementEnterTransition" tools:targetApi="lollipop">
             @transition/change_image_tranform
         </item>
         <item name="android:windowSharedElementExitTransition" tools:targetApi="lollipop">
             @transition/change_image_tranform
-        </item>
+        </item>-->
     </style>
     <style name="RadioPlayerTheme" parent="Theme.AppCompat.Light.NoActionBar">
 

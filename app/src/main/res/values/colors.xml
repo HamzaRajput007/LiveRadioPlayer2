@@ -6,11 +6,15 @@
     <color name="orange">#ED653A</color>
     <color name="black">#2C231D</color>
     <color name="white">#ffffff</color>
+    <color name="lightWhite">#70ffffff</color>
     <color name="textColor">#FFAF91</color>
     <color name="playerStatusBarColor">#433329</color>
     <color name="homeSearchBtnColor">#A70009</color>
-    <color name="playerWaveViewBgColor">#151515</color>
+    <color name="playerWaveViewBgColor">#221C19</color>
     <color name="usBtnBgColor">#1FBAF5</color>
     <color name="ukBtnBgColor">#B93714</color>
+    <color name="lightBrown">#70B93714</color>
+    <color name="gradientEndColor">#312720</color>
+    <color name="gradientStart">#2A221C</color>
     <color name="malaysiaBtnBgColor">#42C137</color>
 </resources>
